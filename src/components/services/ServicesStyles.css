@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+:root {
+  --font-family: 'rRobotto', serif;
+  --font-family1: 'Manrope', sans-serif;
+}
+.service_section1 {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.service_section1 h2 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 50px;
+  color: rgb(58, 58, 58);
+}
+.service_section1 h4 {
+  font-family: var(--font-family1);
+  font-weight: 400;
+  font-size: 30px;
+  color: rgb(58, 58, 58);
+  margin-bottom: 40px;
+}
+.service_cardHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 35px;
+
+  margin: 15px 0;
+}
+.service_cardHolder__card1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  background-color: rgb(209, 209, 209);
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  border: 2px white solid;
+  width: 280px;
+  height: 260px;
+
+  cursor: pointer;
+}
+.service_cardHolder__card1::before {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 260px;
+  z-index: -1;
+  background: tomato;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+.service_cardHolder__card1:hover::before {
+  width: 290px;
+  height: 270px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+h3 {
+  font-size: 20px;
+  font-family: var(--font-family1);
+  font-weight: 500;
+}
+
+.serviceHolder {
+  display: flex;
+  flex-direction: column;
+}
+.loggingService {
+  margin: 20px 0;
+  border: 2px white solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(252, 244, 235, 0.9);
+  border-radius: 0 20px;
+  background-color: rgb(209, 209, 209);
+}
+.loggingService__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 250px;
+}
+.loggingService__container--item {
+  padding: 10px;
+
+  width: 100%;
+}
+.separator {
+  margin: 40px 0 0 0;
+}
