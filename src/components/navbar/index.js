@@ -8,12 +8,14 @@ import {
   NavBarList,
   NavBarItem,
   MobileButton,
+  NavBarTopStrip,
+  NavBarLogo,
 } from './NavBarStyles';
 
 import { ThemeProvider } from 'styled-components';
-import { theme } from './NavBarStyles'; // Importing the theme object from NavBarStyles
+import { theme } from './NavBarStyles';
 
-const NavBar = ({ navbar, ...props }) => {
+const NavBar = () => {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
 
@@ -25,22 +27,17 @@ const NavBar = ({ navbar, ...props }) => {
     handleClick();
     navigate(path);
   };
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavBarContainer>
-          <Link to='/' className='logo'>
-            <img
-              src={logoImage}
-              alt='Logo'
-              style={{
-                height: '250px',
-                width: '100%',
-                objectFit: 'cover',
-                margin: '0 0 20px 0',
-              }}
-            />
-          </Link>
+          <NavBarTopStrip />
+          <NavBarLogo>
+            <Link to='/'>
+              <img src={logoImage} alt='Logo' style={{ height: '100px' }} />
+            </Link>
+          </NavBarLogo>
 
           <NavBarList className={clicked ? 'active' : ''}>
             <NavBarItem onClick={() => handleNavLinkClick('/company')}>
@@ -52,15 +49,13 @@ const NavBar = ({ navbar, ...props }) => {
             <NavBarItem onClick={() => handleNavLinkClick('/services')}>
               SERVICES
             </NavBarItem>
-
             <NavBarItem onClick={() => handleNavLinkClick('/contact')}>
               CONTACT US
             </NavBarItem>
           </NavBarList>
+
           <MobileButton onClick={handleClick}>
-            <button className={clicked ? 'FaTimes' : 'FaBars'}>
-              {clicked ? <FaTimes /> : <FaBars />}
-            </button>
+            <button>{clicked ? <FaTimes /> : <FaBars />}</button>
           </MobileButton>
         </NavBarContainer>
       </ThemeProvider>
